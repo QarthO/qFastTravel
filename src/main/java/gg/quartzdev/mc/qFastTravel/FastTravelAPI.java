@@ -7,14 +7,14 @@ import gg.quartzdev.mc.lib.qlibpaper.QPluginAPI;
 import gg.quartzdev.mc.lib.qlibpaper.commands.CommandManager;
 import gg.quartzdev.mc.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.mc.qFastTravel.commands.CMDfasttravel;
-import gg.quartzdev.mc.qFastTravel.storage.YMLconfig;
+import gg.quartzdev.metrics.bukkit.Metrics;
 
 public class FastTravelAPI implements QPluginAPI {
 
     private static QFastTravel pluginInstance;
 
     private static FastTravelAPI apiInstance;
-    private static YMLconfig config;
+    // private static YMLconfig config;
 
     private static CommandManager commandManager;
     private static gg.quartzdev.metrics.bukkit.Metrics metrics;
@@ -29,8 +29,9 @@ public class FastTravelAPI implements QPluginAPI {
 
     private FastTravelAPI(QFastTravel plugin, int bStatsPluginId) {
         pluginInstance = plugin;
-        QLogger.init(pluginInstance.getComponentLogger());
-        QPluginAPI.register(plugin, bStatsPluginId);
+        QLogger.init(plugin.getComponentLogger());
+        setupMessages();
+        
     }
 
     public static QFastTravel getPlugin() {
@@ -60,7 +61,7 @@ public class FastTravelAPI implements QPluginAPI {
 //        Clears instances
         apiInstance = null;
         pluginInstance = null;
-        config = null;
+        // config = null;
         if (metrics != null)
         {
             metrics.shutdown();
@@ -81,7 +82,7 @@ public class FastTravelAPI implements QPluginAPI {
 
     public static void loadCustomMessages()
     {
-        messages.reload();
+        // messages.reload();
     }
 
     public void setupMetrics(int pluginId)
@@ -97,15 +98,22 @@ public class FastTravelAPI implements QPluginAPI {
     }
 
     @Override
-    public void setupConfig() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setupConfig'");
+    public void registerListeners() {
     }
 
-    @Override
-    public void registerListeners() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registerListeners'");
+    public void setupConfig()
+    {
+        // config = new YMLconfig(pluginInstance, "config.yml");
+    }
+
+    public void setupMessages()
+    {
+        // messages = new Messages(CONSOLE_PREFIX, CHAT_PREFIX);
+    }
+
+    public void setupUpdater(String slug, String loader)
+    {
+//        Bukkit.getPluginManager().registerEvents(new UpdateCheckerListener(slug, loader), pluginInstance);
     }
 
 
