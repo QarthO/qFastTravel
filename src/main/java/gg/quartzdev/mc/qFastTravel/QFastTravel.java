@@ -12,9 +12,7 @@ public final class QFastTravel extends JavaPlugin
 {
 
     @Override
-    public void onEnable()
-    {
-        
+    public void onLoad() {
         CommandAPICommand fastTravel = new CommandAPICommand("qfasttravel")
         .withAliases("fasttravel", "ft", "travel", "warp")
         .withPermission("qfasttravel.use")
@@ -23,6 +21,12 @@ public final class QFastTravel extends JavaPlugin
         });
 
         fastTravel.register();
+    }
+
+    @Override
+    public void onEnable()
+    {
+    
     }
 
     @Override
