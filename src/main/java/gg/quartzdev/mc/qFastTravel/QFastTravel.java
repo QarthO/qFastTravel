@@ -17,6 +17,7 @@ import io.papermc.paper.registry.data.dialog.action.DialogAction;
 import io.papermc.paper.registry.data.dialog.type.DialogType;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickCallback;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 
 public final class QFastTravel extends JavaPlugin
 {
@@ -116,9 +117,9 @@ public final class QFastTravel extends JavaPlugin
 
     private void teleportPlayer(Player player, Position position) {
         player.sendRichMessage("<green>Fast Traveling to <color:#ccfffd><x>, <y>, <z></color>...",
-            net.kyori.adventure.text.minimessage.tag.resolver.Placeholder.component("x", Component.text(position.blockX())),
-            net.kyori.adventure.text.minimessage.tag.resolver.Placeholder.component("y", Component.text(position.blockY())),
-            net.kyori.adventure.text.minimessage.tag.resolver.Placeholder.component("z", Component.text(position.blockZ()))
+            Placeholder.component("x", Component.text(position.blockX())),
+            Placeholder.component("y", Component.text(position.blockY())),
+            Placeholder.component("z", Component.text(position.blockZ()))
         );
         player.teleportAsync(position.toLocation(player.getWorld()));
     }
