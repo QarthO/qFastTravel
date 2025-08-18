@@ -2,3 +2,9 @@ name: qFastTravel
 version: '0.0.1'
 main: gg.quartzdev.mc.qFastTravel.QFastTravel
 api-version: '1.21'
+dependencies:
+  server:
+    CommandAPI:
+      load: BEFORE
+      required: true
+      join-classpath: true

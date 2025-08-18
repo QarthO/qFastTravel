@@ -33,6 +33,14 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <relocations>
+            <relocation>
+              <pattern>org.bstats</pattern>
+              <shadedPattern>gg.quartzdev.mc.qFastTravel.bstats</shadedPattern>
+            </relocation>
+          </relocations>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -51,6 +59,12 @@
       <groupId>io.papermc.paper</groupId>
       <artifactId>paper-api</artifactId>
       <version>1.21.8-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dev.jorel</groupId>
+      <artifactId>commandapi-bukkit-core</artifactId>
+      <version>10.1.2</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
